@@ -21,12 +21,18 @@ public class OrganizationController {
     
     @PostMapping("/add")
     public ResponseEntity<Organization> add(@RequestBody Organization organization) {
+        if (organization.getId() != null && organization.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
+        }
         return ResponseEntity.ok(organizationRepository.save(organization));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Organization> update(@RequestBody Organization organiztion) {
-        return ResponseEntity.ok(organizationRepository.save(organiztion));
+    public ResponseEntity<Organization> update(@RequestBody Organization organization) {
+        if (organization.getId() != null && organization.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
+        }
+        return ResponseEntity.ok(organizationRepository.save(organization));
     }
 
     @GetMapping("/id/{id}")

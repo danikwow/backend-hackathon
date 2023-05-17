@@ -17,7 +17,7 @@ public class Organization {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
-    private int id;
+    private Integer id;
     @Basic
     @Column(name = "Name", nullable = false, length = 45)
     private String name;

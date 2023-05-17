@@ -19,11 +19,17 @@ public class EventController {
     }
     @PostMapping("/add")
     public ResponseEntity<Event> add(@RequestBody Event event) {
+        if (event.getId() != null && event.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
+        }
         return ResponseEntity.ok(eventRepository.save(event));
     }
 
     @PutMapping("/update")
     public ResponseEntity<Event> update(@RequestBody Event event) {
+        if (event.getId() != null && event.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.NOT_ACCEPTABLE);
+        }
         return ResponseEntity.ok(eventRepository.save(event));
     }
 
