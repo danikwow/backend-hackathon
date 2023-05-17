@@ -20,8 +20,8 @@ public class OrganizationController {
     }
     
     @PostMapping("/add")
-    public ResponseEntity<Organization> add(@RequestBody Organization organiztion) {
-        return ResponseEntity.ok(organizationRepository.save(organiztion));
+    public ResponseEntity<Organization> add(@RequestBody Organization organization) {
+        return ResponseEntity.ok(organizationRepository.save(organization));
     }
 
     @PutMapping("/update")
@@ -31,14 +31,14 @@ public class OrganizationController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<Organization> findById(@PathVariable Integer id) {
-        Organization organiztion;
+        Organization organization;
         try {
-            organiztion = organizationRepository.findById(id).get();
+            organization = organizationRepository.findById(id).get();
         }catch (NoSuchElementException e) {
             e.printStackTrace();
             return new ResponseEntity("id = " + id + " not found.", HttpStatus.NOT_ACCEPTABLE);
         }
-        return ResponseEntity.ok(organiztion);
+        return ResponseEntity.ok(organization);
     }
 
     @DeleteMapping("/delete/{id}")
