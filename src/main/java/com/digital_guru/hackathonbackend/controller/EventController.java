@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -54,5 +56,17 @@ public class EventController {
             return new ResponseEntity("id: " + id + " no found.", HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+    
+    @GetMapping("/getAll")
+    public ResponseEntity getAllOrganization() {
+        List<Event> allOrganization = new ArrayList<>();
+        try {
+            allOrganization.addAll(eventRepository.findAll());
+        } catch (EmptyResultDataAccessException e) {
+            e.printStackTrace();
+            return new ResponseEntity("not found", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(allOrganization);
     }
 }

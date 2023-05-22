@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/organization")
@@ -56,5 +58,17 @@ public class OrganizationController {
             return new ResponseEntity("id: " + id + " no found.", HttpStatus.NOT_ACCEPTABLE);
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+    
+    @GetMapping("/getAll")
+    public ResponseEntity getAllOrganization() {
+        List<Organization> allOrganization = new ArrayList<>();
+        try {
+            allOrganization.addAll(organizationRepository.findAll());
+            } catch (EmptyResultDataAccessException e) {
+        e.printStackTrace();
+        return new ResponseEntity("not found", HttpStatus.NOT_FOUND);
+    }
+        return ResponseEntity.ok(allOrganization);
     }
 }
