@@ -59,14 +59,14 @@ public class EventController {
     }
     
     @GetMapping("/getAll")
-    public ResponseEntity getAllOrganization() {
-        List<Event> allOrganization = new ArrayList<>();
+    public ResponseEntity getAllEvents() {
+        List<Event> allEvents = new ArrayList<>();
         try {
-            allOrganization.addAll(eventRepository.findAll());
+            allEvents.addAll(eventRepository.findAll());
         } catch (EmptyResultDataAccessException e) {
             e.printStackTrace();
             return new ResponseEntity("not found", HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(allOrganization);
+        return ResponseEntity.ok(allEvents);
     }
 }
