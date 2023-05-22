@@ -21,14 +21,32 @@ public class NewsController {
 
     @PostMapping("/add")
     public ResponseEntity<News> add(@RequestBody News news) {
-
+        if (news.getId() != null && news.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.BAD_REQUEST);
+        }
+        if (news.getNewsName() == null) {
+            return new ResponseEntity("wrong param: Name must not be null", HttpStatus.BAD_REQUEST);
+        }
+        if (news.getNewsDescription() == null) {
+            return new ResponseEntity("wrong param: Description must not be null", HttpStatus.BAD_REQUEST);
+        }
         return ResponseEntity.ok(newsRepository.save(news));
     }
 
     @PutMapping("/update")
     public ResponseEntity<News> update(@RequestBody News news) {
-        if (validateNews(news) != null) {
-            return validateNews(news);
+        if (news.getId() != null && news.getId() != 0) {
+            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.BAD_REQUEST);
+        }
+        if (news.getNewsName() == null
+                && news.getNewsDescription().length() < 5
+                && news.getNewsName().length() > 100) {
+            return new ResponseEntity("wrong param: Name must not be null", HttpStatus.BAD_REQUEST);
+        }
+        if (news.getNewsDescription() == null
+                && news.getNewsDescription().length() < 5
+                && news.getNewsName().length() > 400) {
+            return new ResponseEntity("wrong param: Description must not be null", HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok(newsRepository.save(news));
     }
@@ -57,27 +75,16 @@ public class NewsController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity getAllOrganization() {
-        List<News> allOrganization = new ArrayList<>();
+    public ResponseEntity getAllNews() {
+        List<News> allNews = new ArrayList<>();
         try {
-            allOrganization.addAll(newsRepository.findAll());
+            allNews.addAll(newsRepository.findAll());
         } catch (EmptyResultDataAccessException e) {
             e.printStackTrace();
             return new ResponseEntity("not found", HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(allOrganization);
+        return ResponseEntity.ok(allNews);
     }
 
-    private ResponseEntity validateNews(News news) {
-        if (news.getId() != null && news.getId() != 0) {
-            return new ResponseEntity("wrong param: id MUST be null", HttpStatus.BAD_REQUEST);
-        }
-        if (news.getNewsName() == null) {
-            return new ResponseEntity("wrong param: Name must not be null", HttpStatus.BAD_REQUEST);
-        }
-        if (news.getNewsDescription() == null) {
-            return new ResponseEntity("wrong param: Description must not be null", HttpStatus.BAD_REQUEST);
-        }
-        return null;
-    }
+
 }

@@ -23,7 +23,7 @@ public class News {
     private Long id;
 
     @Basic
-    @Column(name = "news_name", nullable = false, length = 200)
+    @Column(name = "news_name", nullable = false, length = 100)
     private String newsName;
 
     @Basic
