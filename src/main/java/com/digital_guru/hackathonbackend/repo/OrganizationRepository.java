@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrganizationRepository extends R2dbcRepository<Organization, Integer> {
 }
+
