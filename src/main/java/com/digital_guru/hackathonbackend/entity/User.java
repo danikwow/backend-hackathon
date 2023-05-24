@@ -1,22 +1,22 @@
 package com.digital_guru.hackathonbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jdk.jfr.BooleanFlag;
+import lombok.*;
 
-import java.sql.Timestamp;
-import java.util.Objects;
 
-@EqualsAndHashCode
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
-@Setter
-@Getter
 @Entity
+@Data
+@Builder(toBuilder = true)
+@AllArgsConstructor
+@Table(name = "user", schema = "schooldb")
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @org.springframework.data.annotation.Id
     @Column(name = "id", nullable = false)
     private Long id;
     @Basic
@@ -26,10 +26,19 @@ public class User {
     @Column(name = "email", nullable = true, length = 255)
     private String email;
     @Basic
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
+    private UserRole userRole;
+    @Basic
     @Column(name = "password", nullable = false, length = 32)
     private String password;
     @Basic
     @Column(name = "create_time", nullable = true)
-    private Timestamp createTime;
-
+    private LocalDateTime createTime;
+    @Basic
+    @Column(name = "update_time", nullable = true)
+    private LocalDateTime updateTime;
+    @Basic
+    @BooleanFlag
+    private boolean enabled;
 }

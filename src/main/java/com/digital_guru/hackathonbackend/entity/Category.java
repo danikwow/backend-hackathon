@@ -16,10 +16,10 @@ import java.util.Objects;
 public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @org.springframework.data.annotation.Id
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
     @Column(name = "name", nullable = false, length = 255)
     private String name;
-
 }

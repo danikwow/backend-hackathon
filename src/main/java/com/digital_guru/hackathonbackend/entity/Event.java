@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @EqualsAndHashCode
@@ -17,6 +18,7 @@ import java.util.Objects;
 public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @org.springframework.data.annotation.Id
     @Column(name = "id", nullable = false)
     private Integer id;
     @Basic
@@ -27,6 +29,9 @@ public class Event {
     private String description;
     @Basic
     @Column(name = "startdate", nullable = true)
-    private Timestamp startdate;
+    private LocalDateTime startDate;
+    @Basic
+    @Column(name = "enddate", nullable = true)
+    private LocalDateTime endDate;
 
 }

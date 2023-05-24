@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Organization {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @org.springframework.data.annotation.Id
     @Column(name = "id", nullable = false)
     private Integer id;
     @Basic

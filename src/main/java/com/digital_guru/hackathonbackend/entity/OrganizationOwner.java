@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @EqualsAndHashCode
@@ -18,6 +19,7 @@ import java.util.Objects;
 public class OrganizationOwner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @org.springframework.data.annotation.Id
     @Column(name = "id", nullable = false)
     private Long id;
     @Basic
@@ -31,5 +33,5 @@ public class OrganizationOwner {
     private String password;
     @Basic
     @Column(name = "create_time", nullable = true)
-    private Timestamp createTime;
+    private Date createTime;
 }
