@@ -1,22 +1,19 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package com.digital_guru.hackathonbackend.service;
 
 import com.digital_guru.hackathonbackend.entity.User;
 import com.digital_guru.hackathonbackend.entity.UserRole;
 import com.digital_guru.hackathonbackend.repo.UserRepository;
-import java.time.LocalDateTime;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+
+import java.time.LocalDateTime;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @Slf4j
 @Service

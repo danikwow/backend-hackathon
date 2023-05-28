@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Objects;
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @EqualsAndHashCode
 @NoArgsConstructor

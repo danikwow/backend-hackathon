@@ -11,6 +11,10 @@ import java.time.Instant;
 import java.util.Base64;
 import java.util.Date;
 
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
+
 public class JwtHandler {
 
     private final String secret;

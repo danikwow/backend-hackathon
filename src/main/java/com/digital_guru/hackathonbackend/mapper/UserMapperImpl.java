@@ -6,6 +6,10 @@ import com.digital_guru.hackathonbackend.entity.User;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
+
 public class UserMapperImpl implements UserMapper{
     @Override
     public UserDto map(User entity) {

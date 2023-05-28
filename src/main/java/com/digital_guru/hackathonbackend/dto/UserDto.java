@@ -7,8 +7,10 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 
 import java.util.Date;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @Data
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
@@ -17,6 +19,9 @@ public class UserDto {
     private String username;
     private String email;
     private UserRole userRole;
+    private String firstName;
+    private String secondName;
+    private String lastName;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private Date createTime;

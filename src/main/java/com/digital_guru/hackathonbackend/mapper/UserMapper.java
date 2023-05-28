@@ -6,6 +6,9 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @Component
 @Mapper(componentModel = "spring")

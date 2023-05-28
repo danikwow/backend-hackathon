@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @NoArgsConstructor
 @EqualsAndHashCode

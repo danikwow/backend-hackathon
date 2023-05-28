@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
+
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor

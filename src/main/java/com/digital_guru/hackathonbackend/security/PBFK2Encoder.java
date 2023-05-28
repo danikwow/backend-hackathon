@@ -6,10 +6,13 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @Component
 public class PBFK2Encoder implements PasswordEncoder {

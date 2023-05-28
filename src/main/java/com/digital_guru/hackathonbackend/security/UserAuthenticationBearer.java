@@ -1,16 +1,16 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package com.digital_guru.hackathonbackend.security;
 
 import io.jsonwebtoken.Claims;
-import java.util.List;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 public class UserAuthenticationBearer {
 

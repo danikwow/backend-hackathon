@@ -1,14 +1,17 @@
 package com.digital_guru.hackathonbackend.security;
 
 import com.digital_guru.hackathonbackend.entity.User;
-import com.digital_guru.hackathonbackend.service.UserService;
 import com.digital_guru.hackathonbackend.exception.UnauthorizedException;
+import com.digital_guru.hackathonbackend.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
+
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
 
 @Component
 @RequiredArgsConstructor

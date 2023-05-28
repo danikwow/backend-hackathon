@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.security.Principal;
 
+/**
+ * by Danil Koltovskikh at 26.03.2023
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
